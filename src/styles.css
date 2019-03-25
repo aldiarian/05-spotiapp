@@ -36,6 +36,15 @@ hr {
     height: 50px;
 }
 
+.tabla th,
+.tabla td {
+    color: white;
+}
+
+.tabla img {
+    width: 120px;
+}
+
 
 /* Animaciones */
 

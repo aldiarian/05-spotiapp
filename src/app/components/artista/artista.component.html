@@ -1,3 +1,41 @@
-<p>
-  artista works!
-</p>
+<div class="row m-5">
+    <div class="col">
+        <app-loading *ngIf="cargandoArtista"> </app-loading>
+    </div>
+</div>
+
+<div class="row" *ngIf="!cargandoArtista">
+    <div class="col-2">
+        <img [src]="elArtista.images | noimage" class="img-thumbnail img-circle" alt="">
+    </div>
+    <div class="col">
+        <h3>{{elArtista.name}}</h3>
+        <a [href]="elArtista.external_urls.spotify">Enlace al artista</a>
+    </div>
+    <div class="col-4 text-right">
+        <button routerLink="/search" class="btn btn-outline-danger ">Regresar</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <table class="tabla table m-5">
+            <thead>
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Album</th>
+                    <th scope="col">Canción</th>
+                    <th scope="col">Vista previa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of topTracks">
+                    <td><img class="" [src]="track.album.images | noimage" alt="" srcset=""></td>
+                    <td>{{track.album.name}}</td>
+                    <td>{{track.name}}</td>
+                    <td><audio [src]="track.preview_url" controls></audio> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
